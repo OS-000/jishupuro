@@ -1,0 +1,28 @@
+<launch>
+
+
+  <arg name="model" value="$(find dxl_armed_turtlebot)/urdf/robot.urdf.xacro"  />
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
+  <node name="dynamixel_joint_state_publisher"
+	pkg="dxl_armed_turtlebot" type="joint_state_publisher.py" >
+  </node>
+
+	<!-- <include file="$(find turtlebot_bringup)/launch/minimal.launch" /> -->
+	<include file="$(find dxl_armed_turtlebot)/launch/minimal.launch" />
+
+	<include file="$(find dynamixel_7dof_arm)/launch/dynamixel_7dof_arm_bringup.launch" />
+	<include file="$(find turtlebot_bringup)/launch/3dsensor.launch" />
+	<include file="$(find turtlebot_rviz_launchers)/launch/view_robot.launch" />
+	<include file="$(find dxl_armed_turtlebot)/launch/hsi_color_filter_box.launch" />
+
+	<node  pkg="dxl_armed_turtlebot" name="box_info" type="show_box_position.l" />
+	<node  pkg="dxl_armed_turtlebot" name="box_info_use_pca" type="see_forward.l" />
+	<node  pkg="rqt_reconfigure" name="rqt_reconfigure" type="rqt_reconfigure" />
+	
+</launch>
