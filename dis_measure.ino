@@ -10,7 +10,7 @@ source ~/enshu_ws/devel/setup.bash
 cd ~/Arduino/libraries/
 rm -rf ros_lib
 rosrun rosserial_arduino make_libraries.py .
-roslaunch mechatrobot mechatrobot_driver.launch
+rosrun rosserial_python serial_node.py _port:=/dev/ttyUSBn
  */
 
 #include <ros.h>
