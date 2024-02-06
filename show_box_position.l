@@ -38,7 +38,6 @@
   (setq *bounding-box-list* (send msg :boxes))
   ;;Boundingboxがあれば表示
   (when *bounding-box-list*
-   ;; (send *irtviewer* :draw-objects :flush nil)
     (mapcar #'(lambda (b)
 	    ;;寸法の抽出
 		(let* ((dims (ros::tf-point->pos (send b :dimensions)))
