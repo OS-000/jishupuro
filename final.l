@@ -523,5 +523,6 @@
 (print (list 'step *step_num* 'finished!))
 (setq *step_num* (+ *step_num* 1))
 
+;;箱を開けた状態で終了
 
 
