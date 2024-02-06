@@ -20,7 +20,7 @@
 ;;クラスタリング結果で一番近いものの対象までの距離
 (setq *dist* most-positive-fixnum)
 
-;;yaw角の取得
+;;ヨー角の取得
 (setq *yaw* nil)
 
 ;;コールバック関数の設定
